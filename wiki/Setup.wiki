@@ -3,5 +3,3 @@
 This page details the steps required to configure your Linux machine for building AOSP.  Instructions are written based on Debian / Ubuntu systems. 
 
 == Details ==
-
- 
