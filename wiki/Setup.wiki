@@ -1,4 +1,3 @@
-Environment Setup
 
 = Introduction =
 
@@ -13,7 +12,7 @@ This page details the steps required to configure your Linux machine for buildin
 
       a) Open a terminal and enter the following: 
 
-<i>apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev 		build-essential zip curl libncurses5-dev zlib1g-dev patch gzip cpio mkcramfs lunch</i>
+<i>apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev 	build-essential zip curl libncurses5-dev zlib1g-dev patch gzip cpio mkcramfs lunch</i>
 
 
  1.2. Install Sun Java 5  (not available on current Linux distros...must add repos)
@@ -31,7 +30,7 @@ This page details the steps required to configure your Linux machine for buildin
 
       c) Configure the JVM / JDK:
 
-		update-alternatives --config java
+		<i>update-alternatives --config java</i>
 
 		Select Java 5 from the list of options for JVM. 
 
@@ -47,23 +46,23 @@ This page details the steps required to configure your Linux machine for buildin
 
       a) Install earlier version by opening terminal and:
 
-		sudo apt-get install gcc-4.1 gcc-4.3 g++-4.3	
+		<i>sudo apt-get install gcc-4.1 gcc-4.3 g++-4.3</i>	
 
       b) Install alternatives by opening terminal and:
 
-		sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.3 20
-		sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.3 20
+		<i>sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.3 20</i>
+		<i>sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.3 20</i>
 
-		 sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30
-		 sudo update-alternatives --set cc /usr/bin/gcc
+		<i>sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30</i>
+		 <i>sudo update-alternatives --set cc /usr/bin/gcc<i>
 
-		 sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30
-		 sudo update-alternatives --set c++ /usr/bin/g++
+		 <i>sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30</i>
+		 <i>sudo update-alternatives --set c++ /usr/bin/g++<i>
 
       c) Configure alternatives by opening terminal and:
 
-		sudo update-alternatives  -- config gcc
-		sudo update-alternavtives -- config g++
+		<i>sudo update-alternatives  -- config gcc</i>
+		<i>sudo update-alternavtives -- config g++</i>
 
 
 
@@ -71,41 +70,41 @@ This page details the steps required to configure your Linux machine for buildin
 
       a) Create a build-specific directory under your home and user folder:
 
-		cd /home/lt
-		mkdir android-froyo
+		<i>cd /home/lt</i>
+		<i>mkdir android-froyo</i>
 
       b) Add the build-specific folder to the PATH:
 
-		export PATH=/home/lt/android-froyo:$PATH		
+		<i>export PATH=/home/lt/android-froyo:$PATH</i>		
 
       c) Verify that the bin folder is now in the PATH listing:
 		
-		echo $PATH
+		<i>echo $PATH</i>
 		ex.: /home/lt/android-froyo:/usr/local/bin:/usr/bin:/bin:/usr/games
 
       d) Download the Repo script and make sure it's executable:
 
-		curl http://android.git.kernel.org/repo >~/android-froyo/repo 
+		<i>curl http://android.git.kernel.org/repo >~/android-froyo/repo</i>
 
-		chmod a+x ~/android-froyo/repo (using chmod to change permissions)
+		<i>chmod a+x ~/android-froyo/repo (using chmod to change permissions)</i>
 
       e) Initialize the repo client (http://sites.google.com/a/android.com/opensource/download)
 
-		cd /android-froyo
-		repo init -u git://android.git.kernel.org/platform/manifest.git 
-		(Add -b froyo (or whatever version name) to specify version.)		
-		repo init -u git://github.com/thaplague/android_archos7ht_repo.git	
+		<i>cd /android-froyo</i>
+		<i>repo init -u git://android.git.kernel.org/platform/manifest.git</i> 
+		<i>(Add -b froyo (or whatever version name) to specify version.)</i>		
+		<i>repo init -u git://github.com/thaplague/android_archos7ht_repo.git</i>	
 
       f) Pull down the Android files to your working directory:
 
-		repo sync
+		<i>repo sync</i>
 
 
  1.6. Git Tag Input and Verfication (must be done as root) 
 
       a) Load the following public key into your GnuPG key database.The key is used to sign annotated tags that represent releases. 
 		
-		sudo gpg --import
+		<i>sudo gpg --import</i>
 
 
       b) Paste the key(s) below, and press Control-D to end the input and process the keys. 
@@ -145,6 +144,4 @@ EXzeoxcdoafxqf6gZlJZlACgkWF7wi2YLW3Oa+jv2QSTlrx4KLM=
 
      c) After importing the keys, you can verify any tag with:
 
-		git tag -v tagname 
-
-
+		<i>git tag -v tagname</i> 
