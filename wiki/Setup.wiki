@@ -1,4 +1,4 @@
-= Introduction =
+= Setting Up Your Linux Environment =
 
 This page details the steps required to configure your Linux machine for building AOSP.  Instructions are written based on Debian / Ubuntu systems. 
 
@@ -142,5 +142,3 @@ EXzeoxcdoafxqf6gZlJZlACgkWF7wi2YLW3Oa+jv2QSTlrx4KLM=
  c) After importing the keys, you can verify any tag with:
 
 		git tag -v tagname 
-
-
