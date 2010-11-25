@@ -92,7 +92,7 @@ This section details the steps required to setup and configure your Linux enviro
 
 {{{chmod a+x ~/android-froyo/repo}}}
 
- e) Initialize the repo client:
+ e) Initialize the repo client (*DO NOT USE git://android.git.kernel.org/platform/manifest.git*)
 
 {{{cd /android-froyo}}}
 
@@ -148,5 +148,3 @@ EXzeoxcdoafxqf6gZlJZlACgkWF7wi2YLW3Oa+jv2QSTlrx4KLM=
  c) After importing the keys, you can verify any tag with:
 
 {{{git tag -v tagname}}}
-
-
