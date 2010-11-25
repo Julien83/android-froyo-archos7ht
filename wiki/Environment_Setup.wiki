@@ -1,4 +1,4 @@
-
+#summary Linux Environment Configuration.
 
 = Introduction =
 
@@ -11,110 +11,109 @@ This section details the steps required to setup and configure your Linux enviro
 
  a) Open a terminal and enter the following: 
 
-_apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev build-essential zip curl libncurses5-dev zlib1g-dev patch gzip cpio mkcramfs lunch_
+{{{apt-get install git-core gnupg flex bison gperf libsdl-dev libesd0-dev libwxgtk2.6-dev build-essential zip curl libncurses5-dev zlib1g-dev patch gzip cpio mkcramfs lunch}}}
 
- b) Install Sun Java 5  (not available on current Linux distros...must add repos)
+ b) Install Sun Java 5 (not available on current Linux distros...must add repos) by adding the necessary repositories to your software sources:
 
- c) Add the necessary repositories to your software sources:
+{{{deb http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted}}}
 
-_deb http://us.archive.ubuntu.com/ubuntu/ jaunty main restricted_
+{{{deb http://us.archive.ubuntu.com/ubuntu/ jaunty-updates main restricted}}}
 
-_deb http://us.archive.ubuntu.com/ubuntu/ jaunty-updates main restricted_
+{{{deb http://us.archive.ubuntu.com/ubuntu/ jaunty multiverse}}}
 
-_deb http://us.archive.ubuntu.com/ubuntu/ jaunty multiverse_
-
-_deb http://us.archive.ubuntu.com/ubuntu/ jaunty-updates multiverse_
+{{{deb http://us.archive.ubuntu.com/ubuntu/ jaunty-updates multiverse}}}
 
 
  c) Install the JDK:
 
-_apt-get install sun-java5-jdk_
+{{{apt-get install sun-java5-jdk}}}
 
 
  d) Configure the JVM / JDK (Select Java 5 from the list of options for JVM):
 
-_update-alternatives --config java_
+{{{update-alternatives --config java}}}
 
+<br>
 
- 2. Install Valgrind (Find memory leaks, stack corruption, array bounds overflows)
+2. Install Valgrind (Find memory leaks, stack corruption, array bounds overflows)
 
-_apt-get install valgrind_
+{{{apt-get install valgrind}}}
 
+<br>
 
-
- 3. Install GCC and G++ 4.3 (Not Latest Version)
-
+3. Install GCC and G++ 4.3 (Not Latest Version)
 
  a) Install earlier version by opening terminal and:
 
-_sudo apt-get install gcc-4.1 gcc-4.3 g++-4.3_
+{{{sudo apt-get install gcc-4.1 gcc-4.3 g++-4.3}}}
 
 
  b) Install alternatives by opening terminal and:
 
-_sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.3 20_
+{{{sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.3 20}}}
 
-_sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.3 20_
+{{{sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.3 20}}}
 
-_sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30_
+{{{sudo update-alternatives --install /usr/bin/cc cc /usr/bin/gcc 30}}}
 
-_sudo update-alternatives --set cc /usr/bin/gcc_
+{{{sudo update-alternatives --set cc /usr/bin/gcc_}}}
 
-_sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30_
+{{{sudo update-alternatives --install /usr/bin/c++ c++ /usr/bin/g++ 30}}}
 
-_sudo update-alternatives --set c++ /usr/bin/g++_
-
+{{{sudo update-alternatives --set c++ /usr/bin/g++}}}
 
 
  c) Configure alternatives by opening terminal and:
 
-_sudo update-alternatives  -- config gcc_
+{{{sudo update-alternatives  -- config gcc}}}
 
-_sudo update-alternavtives -- config g++_
-			
+{{{sudo update-alternavtives -- config g++}}}
+<br>
+<br>
 
- 4. Install Repo Script (Tool for using Git with Android)
+
+4. Install Repo Script (Tool for using Git with Android)
 
  a) Create a build-specific directory under your home and user folder:
 
-_mkdir android-froyo_
+{{{mkdir android-froyo}}}
 
  b) Add the build-specific folder to the PATH:
 
-_export PATH=/home/lt/android-froyo:$PATH_
+{{{export PATH=/home/lt/android-froyo:$PATH}}}
 
  c) Verify that the bin folder is now in the PATH listing:
 
-_echo $PATH_
+{{{echo $PATH}}}
 
  d) Download the Repo script and make sure it's executable:
 
-_curl http://android.git.kernel.org/repo >~/android-froyo/repo 
+{{{curl http://android.git.kernel.org/repo >~/android-froyo/repo}}} 
 
-_chmod a+x ~/android-froyo/repo
+{{{chmod a+x ~/android-froyo/repo}}}
 
  e) Initialize the repo client:
 
-_cd /android-froyo_
+{{{cd /android-froyo}}}
 
-_repo init -u git://github.com/thaplague/android_archos7ht_repo.git_
+{{{repo init -u git://github.com/thaplague/android_archos7ht_repo.git}}}
 		
-
  f) Pull down the Android files to your working directory:
 
-_repo sync_
+{{{repo sync}}}
+<br>
+<br>
 
-
- 5. Git Tag Input and Verification (must be done as root) 
+5. Git Tag Input and Verification (must be done as root) 
 
  a) Load the following public key into your GnuPG key database. The key is used to sign annotated tags that represent releases. 
 
-_sudo gpg --import_
+{{{sudo gpg --import}}}
 
  b) Paste the key(s) below, and press Control-D to end the input and process the keys. 
 
 
-
+{{{
 -----BEGIN PGP PUBLIC KEY BLOCK-----
 Version: GnuPG v1.4.2.2 (GNU/Linux)
 mQGiBEnnWD4RBACt9/h4v9xnnGDou13y3dvOx6/t43LPPIxeJ8eX9WB+8LLuROSV
@@ -144,12 +143,11 @@ hN0DlsIw8hqJc0WISQQYEQIACQUCSedYRAIbDAAKCRDorT+BmrEOeCUOAJ9qmR0l
 EXzeoxcdoafxqf6gZlJZlACgkWF7wi2YLW3Oa+jv2QSTlrx4KLM=
 =Wi5D
 -----END PGP PUBLIC KEY BLOCK-----
+}}}
 
  c) After importing the keys, you can verify any tag with:
 
-_git tag -v tagname_ 
-
-
+{{{git tag -v tagname}}}
 
 
 
