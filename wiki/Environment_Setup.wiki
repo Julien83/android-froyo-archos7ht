@@ -1,11 +1,11 @@
-#summary Linux Environment Configuration.
+#summary Linux Environment Configuration for Android.
 
-= Introduction =
+== Introduction ==
 
 This section details the steps required to setup and configure your Linux environment in preparation for building Android. 
 
 
-= Details =
+== Details ==
 
  1. Install the following packages (most are necessary utilities you will need throughout the course of the build):
 
@@ -148,7 +148,5 @@ EXzeoxcdoafxqf6gZlJZlACgkWF7wi2YLW3Oa+jv2QSTlrx4KLM=
  c) After importing the keys, you can verify any tag with:
 
 {{{git tag -v tagname}}}
-
-
 
 
