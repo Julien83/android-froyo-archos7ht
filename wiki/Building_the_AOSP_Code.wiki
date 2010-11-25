@@ -13,7 +13,7 @@ Instructions for Building the AOSP Source.
 
 {{{cd home/user/android-froyo}}}
 
- b) Enter in the following to initiate the compilation process. This can occasionally error, but try again if the build fails (specifying build parameters):
+ b) Enter in the following to initiate the compilation process (specifying build parameters):
 
 {{{. build/envsetup.sh}}} (creates a build setup file)
 
@@ -36,8 +36,6 @@ Instructions for Building the AOSP Source.
 <br>
 
 5. Doing so will force the build system to use the ccache compiler cache tool, which reduces recompiling all sources. ccache binaries are provided in //prebuilt/... and don't need to get installed on your system.
-
-
 
 
 
