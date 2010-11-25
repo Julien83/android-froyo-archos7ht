@@ -1,0 +1,44 @@
+#summary AOSP Build Instructions
+
+== Introduction ==
+
+Instructions for Building the AOSP Source.
+
+
+== Details ==
+
+1.Compiling the AOSP
+
+ a) Open a terminal and go to the top level of build directory:
+
+{{{cd home/user/android-froyo}}}
+
+ b) Enter in the following to initiate the compilation process. This can occasionally error, but try again if the build fails (specifying build parameters):
+
+{{{. build/envsetup.sh}}} (creates a build setup file)
+
+{{{choosecombo}}} (choose a build configuration)
+
+{{{make -j4 PRODUCT-generic-user}}} (Build the source. Choose j2 to reduce cpu usage)
+<br>
+<br>
+
+2. If you build one flavor and then want to build another, you should run:
+{{{make installclean}}} (Guarantees that you don't pick up files installed by the previous flavor.) 
+<br>
+
+3. Execute {{{m clean}}} to clean up the binaries you just created. You can also execute {{{m clobber}}} to get rid of the binaries of all combos. _m clobber_ is equivalent to removing the //out/ directory where all generated files are stored.
+<br>
+
+4. Speeding Up Rebuilds: The binaries of each combo are stored as distinct sub-directories of //out/, making it possible to quickly switch between combos without having to recompile all sources each time. However, performing a clean rebuild is necessary if the build system doesn't catch changes to environment variables or make-files. If this happens often, you should define the _USE_CCACHE_ environment variable as shown below: 
+
+{{{export USE_CCACHE=1}}}
+<br>
+
+5. Doing so will force the build system to use the ccache compiler cache tool, which reduces recompiling all sources. ccache binaries are provided in //prebuilt/... and don't need to get installed on your system.
+
+
+
+
+
+
